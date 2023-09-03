@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+
+
+    {% for file in files %}
+        <form action = "http://localhost:5000/fenge" method = "post">
+    <a href="{{ url_for ('file_download', filename=file)  }}">{{ file }}</a><br/>
+            患者姓名：<input type="text" name="patientname" >
+            患者id：<input type="text" name="patientid" >
+        <input type="hidden"  value="{{ file }}" name="filename">
+        <input type="submit" value="图像切割">
+        </form>
+    {% endfor %}
+
+</body>
+
+</html>
